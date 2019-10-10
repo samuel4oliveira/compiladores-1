@@ -1,0 +1,9 @@
+Exercício 1: W = 13, X = 11, Y = 13, Z = 11 || W = 9, X = 7, Y = 13, Z = 11 
+
+Exercício 2: 
+
+	       Escopo
+int W = | B1 - B3 - B4 - B5
+int X = | B1 - B2 - B3 - B4 - B5
+int Y = | B1 - B5 
+int Z = | B1 - B2 - B3 - B5
