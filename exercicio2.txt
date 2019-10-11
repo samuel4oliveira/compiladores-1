@@ -1,0 +1,76 @@
+2.2.1
+
+A) e B)
+	   <S>
+        /   |    \
+     <S>   <S>    *
+   /  |  \    \
+ <S> <S>  +    a
+  |   |
+  a   a
+
+
+C)Essa gramática gera uma linguagem posfixa, pois os operadores ficam após os operandos, seguindo a notação polonesa.
+
+
+2.2.4
+
+A)<S> -> id | id , <S>
+
+		<S>
+	      /  |  \
+             id  ,   <S>
+                    / | \
+	           id , <S>
+			 |
+			 id  
+	
+B)<S> -> id | <S> , id
+
+		 <S>
+	       /  |  \
+              <s> ,   id
+	     / | \
+            <s>, id
+             |
+            id 
+
+
+aa*a+a-a/
+
+C)<S> -> <S> <S> + | <S> <S> - | <S> <S> * | <S> <S> / | a
+
+			    <S>
+			 /   |   \
+		       <S>  <S>   /
+		    /   | \  |
+		 <S>   <S> - a
+	       /  | \   |
+	   <S>   <S> +  a
+	 /  | \   |
+       <S> <S> *  a
+        |   |
+        a   a  
+
+2.2.5
+A)Para fazer a formulação do número, só temos disponíveis o valor 3, 9 e 0. Sabemos que se a soma dos algorismos é divisível por 3, o numéro também será. Qualquer número gerado apartir dessa cadeia vai ser divisível por 3.
+
+
+2.2.6
+A)<S> -> I <S>| <S> I| I | V | X | L | C | D | M
+
+			<S>
+			/ \
+		       <S> I
+                       / \
+                     <S>  I
+                     / \
+                    <S> I   
+                     |
+                     V
+
+
+
+
+
+
