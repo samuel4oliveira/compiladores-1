@@ -1,2 +1,2 @@
 # compiladores1
-Compilador e exercícios da disciplina Compiladores 1
+Atividades da disciplina Compiladores 1
