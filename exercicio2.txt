@@ -147,11 +147,20 @@ A)
 	      9											
 													
 														
-											
-															
-
-														
+		                  952*-
+                                  expr							
+	       /        /          |      \      \         \                  	
+	 {print('(')} expr  {print('-')}  term {print(')')} -
+                                           |
+                                           9
+       /      /        |         \      \         \                                           											
+{print('(')} expr  {print('*')}  term {print(')')} *
+	      |                    |
+             term                  2
+              |
+              5												
 																	
+
 
 
 
