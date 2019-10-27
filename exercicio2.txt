@@ -57,20 +57,29 @@ A)Para fazer a formulação do número, só temos disponíveis o valor 3, 9 e 0.
 
 
 2.2.6
-A)<S> -> I <S>| <S> I| I | V | X | L | C | D | M
+A)<S> -> MECEDEU
+    U -> I| II| III| IV| V| VI| VII| VIII| IX| &
+   DE -> X| XX| XXX| XL| L| LX| LXX| LXXX| CL| & 
+   CE -> C| CC| CCC| CD| D| DC| DCC| DCCC| DM| &
+   ME -> M| MM| MMM| &
+																			
+                                               
+																									
 
-			<S>
-			/ \
-		       <S> I
-                       / \
-                     <S>  I
-                     / \
-                    <S> I   
-                     |
-                     V
-
-
-
+									
+														
+																
+																
+													
+													
+												
+												
+													
+														
+											
+															
+														
+																	
 
 
 
