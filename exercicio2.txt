@@ -57,19 +57,49 @@ A)Para fazer a formulação do número, só temos disponíveis o valor 3, 9 e 0.
 
 
 2.2.6
-A)<S> -> MECEDEU
+A)
+   <S> -> MECEDEU
     U -> I| II| III| IV| V| VI| VII| VIII| IX| &
    DE -> X| XX| XXX| XL| L| LX| LXX| LXXX| CL| & 
    CE -> C| CC| CCC| CD| D| DC| DCC| DCCC| DM| &
    ME -> M| MM| MMM| &
-																			
-                                               
-																									
+				
 
+2.3.1
+A) 															
+    expr -> expr + term  {print('+')}
+    expr -> expr - term  {print('-')}
+    expr -> expr * term  {print('*')}
+    expr -> expr / term  {print('/')}
+    expr -> term
+    term -> 0                               
+    term -> 1
+    term -> 2
+    term -> 3																								
+    term -> 4                             
+    term -> 5
+    term -> 6
+    term -> 7
+    term -> 8
+    term -> 9
+
+               		9-5+2
+	        	expr		
+	    / 	/	  |	   \		
+	expr 	+	 term 	 {print('+')}
+                          | 
+  /     /    \    \       2        		
 									
-														
-																
-																
+expr 	-    term    {print('-')}	     		
+ |             |
+term           5 
+ |
+ 9													
+			
+
+
+                          9-5*2
+                   													
 													
 													
 												
