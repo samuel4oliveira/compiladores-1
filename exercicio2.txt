@@ -97,17 +97,59 @@ term           5
  9													
 			
 
+               		9-5*2
+	        	expr		
+	    / 	/	  |	   \		
+	expr 	*	 term 	 {print('*')}
+                          | 
+  /     /    \    \       2        		
+									
+expr 	-    term    {print('-')}	     		
+ |             |
+term           5 
+ |
+ 9
 
-                          9-5*2
-                   													
-													
-													
-												
-												
+
+
+
+
+
+2.3.2
+A)
+    expr -> {print('(')} expr  {print('+')}  term {print(')')} +
+    expr -> {print('(')} expr  {print('-')}  term {print(')')} - 
+    expr -> {print('(')} expr  {print('*')}  term {print(')')} *
+    expr -> {print('(')} expr  {print('/')}  term {print(')')} /
+    expr -> term
+    term -> 0                               
+    term -> 1
+    term -> 2
+    term -> 3																								
+    term -> 4                             
+    term -> 5
+    term -> 6
+    term -> 7
+    term -> 8
+    term -> 9
+
+                                95-2*
+                                expr
+                /      /          |      \      \         \
+        {print('(')} expr  {print('*')}  term {print(')')} *					
+                               		   |
+                                           2  
+       /      /        |         \      \         \
+{print('(')} expr  {print('-')}  term {print(')')} +	
+              | 		  |							
+	     term	          5								
+	      |										
+	      9											
 													
 														
 											
 															
+
 														
 																	
 
