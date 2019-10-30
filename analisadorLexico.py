@@ -1,22 +1,20 @@
-codigo = open("/mnt/c/Users/samuel/Documents/ufmt/compiladores1/entradaExercicio3.txt", "r").read()
+codigo = open("/mnt/c/Users/samuel/Documents/ufmt/compiladores1/entradaAnalisadorLexico.txt", "r").read()
 codigo = codigo.replace("(", "( ")
 codigo = codigo.replace(")", " )")
-codigo = codigo.replace("\n", " malandragi ")
+codigo = codigo.replace("\n", " quebraDeLinha ")
 tokens = codigo.split()
 
 palavraReservada = ['if']
 operadorRelacional = ['<']
 operadorAtribuição = ['=']
 operadorAritmetico = ['+', '-', '*', '/']
-numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 aux1 = 0
 aux2 = 0
-variavil = " "
-variavil2 = " "
+comentario = " "
 for token in tokens:
     if token in palavraReservada:
-        print(token, ", palavra reservada")
+        print(token + ", palavra reservada")
     elif token  == '(':
         print(token + ", abre parênteses")
     elif token in operadorRelacional:
@@ -32,23 +30,23 @@ for token in tokens:
     elif token in operadorAritmetico:
         print(token + ", operador aritimético")
     elif token == "/*":
-        variavil = "/* "
+        comentario = "/* "
         aux1 = 1
     elif aux1 == 1 and token != "*/":
-        variavil += token
+        comentario += token
     elif aux1 == 1 and token == "*/":
-        variavil += " */"
+        comentario += " */"
         aux1 = 0
-        print(variavil + ", comentário")
+        print(comentario + ", comentário")
     elif token == "//":
-        variavil2 = "//"
+        comentario = "//"
         aux2 = 1
-    elif aux2 == 1 and token != "malandragi":
-        variavil2 += token
-    elif aux2 == 1 and token == "malandragi":
+    elif aux2 == 1 and token != "quebraDeLinha":
+        comentario += token
+    elif aux2 == 1 and token == "quebraDeLinha":
         aux2 = 0
-        print(variavil2 + ", comentário")
-    elif token[0] not in numeros and token != "malandragi":
+        print(comentario + ", comentário")
+    elif not token[0].isdigit() and token != "quebraDeLinha":
         print(token + ", identificador")
 
     try:
