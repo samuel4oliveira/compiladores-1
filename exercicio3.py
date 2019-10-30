@@ -8,7 +8,7 @@ operadorRelacional = ['<']
 operadorAtribuição = ['=']
 operadorAritmetico = ['+', '-', '*', '/']
 
-aux = 0
+aux1 = 0
 variavil = " "
 for token in tokens:
     if token in palavraReservada:
@@ -29,12 +29,12 @@ for token in tokens:
         print(token + ", operador aritimético")
     elif token == "/*":
         variavil = "/* "
-        aux = 1
-    elif aux == 1 and token != "*/":
+        aux1 = 1
+    elif aux1 == 1 and token != "*/":
         variavil += token
-    elif aux == 1 and token == "*/":
+    elif aux1 == 1 and token == "*/":
         variavil += " */"
-        aux = 0
+        aux1 = 0
         print(variavil + ", comentário")
     
     try:
