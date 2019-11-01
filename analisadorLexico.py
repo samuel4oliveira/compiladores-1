@@ -1,11 +1,11 @@
 codigo = open("/mnt/c/Users/samuel/Documents/ufmt/compiladores1/entradaAnalisadorLexico.txt", "r").read()
-codigo = codigo.replace("(", "( ")
-codigo = codigo.replace(")", " )")
+codigo = codigo.replace("(", " ( ")
+codigo = codigo.replace(")", " ) ")
 codigo = codigo.replace("\n", " quebraDeLinha ")
 tokens = codigo.split()
 
 palavraReservada = ['if']
-operadorRelacional = ['<']
+operadorRelacional = ['<', '<=', '==', '!=', '>=', '>']
 operadorAtribuição = ['=']
 operadorAritmetico = ['+', '-', '*', '/']
 
