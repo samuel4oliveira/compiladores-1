@@ -1,2 +1,2 @@
 # compiladores1
-Atividades da disciplina Compiladores 1
+Compilador da disciplina Compiladores 1 e outras atividades :D
