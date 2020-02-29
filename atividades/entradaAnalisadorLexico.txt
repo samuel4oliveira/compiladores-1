@@ -1,5 +1,0 @@
-if (a9 < b) /* operacao relacional */
-{
-    soma = 4.9 + 0.5 // atribuicao
-    i = i * 1
-}
