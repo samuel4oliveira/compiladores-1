@@ -17,12 +17,12 @@ def analisadorLexico(pathEntrada):
     arquivo = arquivo.replace(': =', ':=')
     tokens = arquivo.split()
 
-    resultado = {}
+    resultado = []
     for token in tokens:
         if token in palavrasReservadas:
-            resultado.update({token:palavrasReservadas[token]})
+            resultado.append([token, palavrasReservadas[token]])
         elif token.isalpha():
-            resultado.update({token:'identificador'})
+            resultado.append([token, 'identificador'])
         else:
             return ('Erro') 
     return resultado
