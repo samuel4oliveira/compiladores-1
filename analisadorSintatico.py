@@ -98,6 +98,3 @@ def analisador_sintatico(tokens):
         s(tokens)
    
     z(tokens)
-
-caralho = analisadorLexico.analisador_lexico('/home/samuel/Documents/ufmt/compiladores1/entrada.txt')
-analisador_sintatico(caralho)
