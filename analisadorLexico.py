@@ -4,6 +4,7 @@ def analisador_lexico(pathEntrada):
         ':' : 'dois pontos',
         ',':'virgula',
         'integer':'tipo',
+        'real':'tipo',
         ';':'ponto e virgula',
         ':=':'atribuicao',
         'if':'condicional',
@@ -24,5 +25,5 @@ def analisador_lexico(pathEntrada):
         elif token.isalpha():
             resultado.append([token, 'identificador'])
         else:
-            return ('Erro') 
+            raise ValueError("Erro Léxico, '" + token + "' não é uma palavra reservada ou identificador válido.")
     return resultado
