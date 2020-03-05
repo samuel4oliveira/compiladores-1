@@ -1,4 +1,4 @@
-def analisadorLexico(pathEntrada):
+def analisador_lexico(pathEntrada):
     palavrasReservadas = {
         'var':'declaracao',
         ':' : 'dois pontos',
