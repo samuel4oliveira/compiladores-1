@@ -1,6 +1,4 @@
-var foo, bar: integer;
-    foobar: real
-
+var
+	foo, bar: integer;
+	foobar: integer;
 foobar := foo + bar
-
-if foo + bar then foo := bar
