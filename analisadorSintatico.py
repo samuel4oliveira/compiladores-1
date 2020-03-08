@@ -42,7 +42,7 @@ def analisador_sintatico():
     
     def k():
         global posicao, token
-        if token[posicao][1] == 'tipo':
+        if token[posicao][1] == 'tipo_integer' or token[posicao][1] == 'tipo_real':
             posicao += 1
         else:
             raise EnvironmentError("Erro Sintático, é esperado 'integer' ou 'real', '" + token[posicao][0] + "' não é válido.")
