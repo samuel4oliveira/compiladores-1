@@ -1,4 +1,5 @@
 import analisadorLexico
+import analisadorSemantico
 
 global posicao, token
 posicao = 0
@@ -7,7 +8,10 @@ token = analisadorLexico.analisador_lexico('/home/samuel/Documents/ufmt/compilad
 def analisador_sintatico():
 
     def z():
+        #Declaração
         i()
+
+        #Condicional e Atribuição
         s()
     
     def i():
@@ -29,6 +33,9 @@ def analisador_sintatico():
     def l():
         global posicao, token
         if token[posicao][1] == 'identificador':
+            #Inicio Analisador Semantico
+            analisadorSemantico.inserirID(token[posicao][0])
+            #Fim Analisador Semantico
             posicao += 1
             x()
         else:
@@ -46,6 +53,9 @@ def analisador_sintatico():
             posicao += 1
         else:
             raise EnvironmentError("Erro Sintático, é esperado 'integer' ou 'real', '" + token[posicao][0] + "' não é válido.")
+        #Inicio Analisador Semantico
+        analisadorSemantico.inserirTipo(token[posicao-1][1])    
+        #Fim Analisador Semantico
 
     def o():
         global posicao, token
@@ -56,10 +66,18 @@ def analisador_sintatico():
     def s():
         global posicao, token
         if token[posicao][1] == 'identificador':
+            #Inicio Analisador Semantico
+            if not analisadorSemantico.buscar(token[posicao][0]):
+                raise EnvironmentError("Erro Semantico, atribuição em identificador não declarada.")
+            analisadorSemantico.inserir_soma(token[posicao][0])
+            #Fim Analisador Semantico
             posicao += 1
             if token[posicao][1] == 'atribuicao':
                 posicao += 1
                 e()
+                #Inicio Analisador Semantico
+                analisadorSemantico.verificar_tipo()
+                #Fim Analisador Semantico
                 if posicao < len(token):
                     raise EnvironmentError("Erro Sintático, declaração após atribuição.")
             else:
@@ -87,13 +105,20 @@ def analisador_sintatico():
                 posicao += 1
                 t()
                 r()
+                return
+            #Inicio Analisador Semantico
+            analisadorSemantico.verificar_tipo()
+            #Fim Analisador Semantico
         except IndexError:
             return
     
     def t():
         global posicao, token
         if token[posicao][1] == 'identificador':
+            #Inicio Analisador Semantico
+            analisadorSemantico.inserir_soma(token[posicao][0])
+            #Fim Analisador Semantico
             posicao += 1
 
-    z() 
+    z()
 analisador_sintatico()
