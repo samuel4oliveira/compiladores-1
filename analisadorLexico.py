@@ -18,8 +18,6 @@ def analisador_lexico(pathEntrada):
     arquivo = arquivo.replace(': =', ' := ')
     tokens = arquivo.split()
 
-    print(tokens)
-
     resultado = []
     for token in tokens:
         if token in palavrasReservadas:
@@ -29,5 +27,3 @@ def analisador_lexico(pathEntrada):
         else:
             raise ValueError("Erro Léxico, '" + token + "' não é uma palavra reservada ou identificador válido.")
     return resultado
-
-for i in analisador_lexico('/home/samuel/Documents/ufmt/compiladores1/entrada.txt'): print(i)
