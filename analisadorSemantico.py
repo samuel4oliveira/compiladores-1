@@ -4,17 +4,17 @@ tabelaDeSimbolos = {}
 global listaSoma
 listaSoma = []
 
-def inserirID(id):
+def inserir_id(id):
     global tabelaDeSimbolos
     tabelaDeSimbolos[id] = '' 
 
-def inserirTipo(tipo):
+def inserir_tipo(tipo):
     global tabelaDeSimbolos
     for i in tabelaDeSimbolos:
         if tabelaDeSimbolos[i] == '':
             tabelaDeSimbolos[i] = tipo
 
-def buscar(id):
+def buscar_id(id):
     global tabelaDeSimbolos
     if id in tabelaDeSimbolos:
         return True

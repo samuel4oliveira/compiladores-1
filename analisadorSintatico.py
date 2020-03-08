@@ -34,7 +34,7 @@ def analisador_sintatico():
         global posicao, token
         if token[posicao][1] == 'identificador':
             #Inicio Analisador Semantico
-            analisadorSemantico.inserirID(token[posicao][0])
+            analisadorSemantico.inserir_id(token[posicao][0])
             #Fim Analisador Semantico
             posicao += 1
             x()
@@ -54,7 +54,7 @@ def analisador_sintatico():
         else:
             raise EnvironmentError("Erro Sintático, é esperado 'integer' ou 'real', '" + token[posicao][0] + "' não é válido.")
         #Inicio Analisador Semantico
-        analisadorSemantico.inserirTipo(token[posicao-1][1])    
+        analisadorSemantico.inserir_tipo(token[posicao-1][1])    
         #Fim Analisador Semantico
 
     def o():
@@ -67,7 +67,7 @@ def analisador_sintatico():
         global posicao, token
         if token[posicao][1] == 'identificador':
             #Inicio Analisador Semantico
-            if not analisadorSemantico.buscar(token[posicao][0]):
+            if not analisadorSemantico.buscar_id(token[posicao][0]):
                 raise EnvironmentError("Erro Semantico, atribuição em identificador não declarada.")
             analisadorSemantico.inserir_soma(token[posicao][0])
             #Fim Analisador Semantico
