@@ -76,7 +76,7 @@ def analisador_sintatico():
                 posicao += 1
                 e()
                 #Inicio Analisador Semantico
-                analisadorSemantico.verificar_tipo()
+                analisadorSemantico.verificar_tipo('atribuicao')
                 #Fim Analisador Semantico
                 if posicao < len(token):
                     raise EnvironmentError("Erro Sintático, declaração após atribuição.")
@@ -107,7 +107,7 @@ def analisador_sintatico():
                 r()
                 return
             #Inicio Analisador Semantico
-            analisadorSemantico.verificar_tipo()
+            analisadorSemantico.verificar_tipo('soma')
             #Fim Analisador Semantico
         except IndexError:
             return
@@ -119,6 +119,6 @@ def analisador_sintatico():
             analisadorSemantico.inserir_soma(token[posicao][0])
             #Fim Analisador Semantico
             posicao += 1
-
+    
     z()
 analisador_sintatico()
