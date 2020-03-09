@@ -1,8 +1,9 @@
+arquivo= open("saida.txt","w+")
 global tabelaDeSimbolos
 tabelaDeSimbolos = {}
 
-global listaSoma
-listaSoma = []
+global listaVerificacao
+listaVerificacao = []
 
 global linha
 linha = 1
@@ -26,40 +27,40 @@ def buscar_id(id):
 
 def verificar_tipo(chave):
     global linha
-    global listaSoma
+    global listaVerificacao
     global tabelaDeSimbolos
     
-    for i in listaSoma:
-        if tabelaDeSimbolos[i] == tabelaDeSimbolos[listaSoma[0]]:
+    for i in listaVerificacao:
+        if tabelaDeSimbolos[i] == tabelaDeSimbolos[listaVerificacao[0]]:
             pass
         elif chave == 'soma':
             raise EnvironmentError("Erro Semantico, soma entre real e integer.")
         elif chave == 'atribuicao':
             raise EnvironmentError("Erro Semantico, atribuição entre real e integer.")
 
-    #Gerador de Código
+    #Inicio Gerador de Código
     if chave == 'atribuicao':
-        aux = listaSoma[0]
-        listaSoma.pop(0)
+        aux = listaVerificacao[0]
+        listaVerificacao.pop(0)
 
-    while len(listaSoma) > 1:
-        listaSoma.insert(2, 't1')
-        print(str(linha)+':', '[+', listaSoma[0], listaSoma[1], listaSoma[2] + ']')
+    while len(listaVerificacao) > 1:
+        listaVerificacao.insert(2, 't1')
+        arquivo.write(str(linha)+': ' + '[+' + listaVerificacao[0] + ' ' + listaVerificacao[1] +' ' + listaVerificacao[2] + ' ]\n')
         linha += 1
-        listaSoma.pop(0)
-        listaSoma.pop(0) 
+        listaVerificacao.pop(0)
+        listaVerificacao.pop(0) 
         
     if chave == 'soma':
-        print(str(linha)+':', '[JF', 't1', linha+2, '-]')
+        arquivo.write(str(linha)+': ' +  '[JF ' + ' t1 ' + str(linha+2) + ' -]\n')
         linha += 1  
     elif chave == 'atribuicao':
-        print(str(linha)+':', '[:=', aux, listaSoma[0], '-]')
+        arquivo.write(str(linha)+':' + ' [:= ' + aux + ' ' + listaVerificacao[0] + ' -]\n')
         linha += 1 
-        print(str(linha)+':', '[...]')
-    
-    #Gerador de Código
-    listaSoma = []
+        arquivo.write(str(linha)+': ' + '[...]')
+        arquivo.close()
+    #Fim Gerador de Código
+    listaVerificacao = []
 
 def inserir_soma(id):
-    global listaSoma
-    listaSoma.append(id)
+    global listaVerificacao
+    listaVerificacao.append(id)
