@@ -45,13 +45,13 @@ def verificar_tipo(chave):
 
     while len(listaVerificacao) > 1:
         listaVerificacao.insert(2, 't1')
-        arquivo.write(str(linha)+': ' + '[+' + listaVerificacao[0] + ' ' + listaVerificacao[1] +' ' + listaVerificacao[2] + ' ]\n')
+        arquivo.write(str(linha)+': ' + '[+ ' + listaVerificacao[0] + ' ' + listaVerificacao[1] +' ' + listaVerificacao[2] + ']\n')
         linha += 1
         listaVerificacao.pop(0)
         listaVerificacao.pop(0) 
-        
+    print(listaVerificacao)
     if chave == 'soma':
-        arquivo.write(str(linha)+': ' +  '[JF ' + ' t1 ' + str(linha+2) + ' -]\n')
+        arquivo.write(str(linha)+': ' +  '[JF ' + listaVerificacao[0] + ' ' + str(linha+2) + ' -]\n')
         linha += 1  
     elif chave == 'atribuicao':
         arquivo.write(str(linha)+':' + ' [:= ' + aux + ' ' + listaVerificacao[0] + ' -]\n')
