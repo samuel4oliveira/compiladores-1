@@ -71,25 +71,31 @@ def analisador_sintatico():
                 raise EnvironmentError("Erro Semantico, atribuição em identificador não declarada.")
             analisadorSemantico.inserir_soma(token[posicao][0])
             #Fim Analisador Semantico
-            posicao += 1
-            if token[posicao][1] == 'atribuicao':
+            if len(token) > posicao+1:         
                 posicao += 1
-                e()
-                #Inicio Analisador Semantico
-                analisadorSemantico.verificar_tipo('atribuicao')
-                #Fim Analisador Semantico
-                if posicao < len(token):
-                    raise EnvironmentError("Erro Sintático, declaração após atribuição.")
+                if token[posicao][1] == 'atribuicao':
+                    posicao += 1
+                    e()
+                    #Inicio Analisador Semantico
+                    analisadorSemantico.verificar_tipo('atribuicao')
+                    #Fim Analisador Semantico
+                    if posicao < len(token):
+                        raise EnvironmentError("Erro Sintático, declaração após atribuição.")
+                else:
+                    raise EnvironmentError("Erro Sintático, '" + token[posicao][0] + "' não é válido.")
             else:
-                raise EnvironmentError("Erro Sintático, é esperado 'var', '" + token[posicao][0] + "' não é válido.")
+                raise EnvironmentError("Erro Sintático, código inacabado.")
         elif token[posicao][1] == 'condicional':
             posicao += 1
             e()
-            if token[posicao][1] == 'acao condicional':
-                posicao += 1
-                s()
+            if len(token) > posicao+1:
+                if token[posicao][1] == 'acao condicional':
+                    posicao += 1
+                    s()
+                else:
+                    raise EnvironmentError("Erro Sintático, é esperado 'then', '" + token[posicao][0] + "' não é válido.")
             else:
-                raise EnvironmentError("Erro Sintático, é esperado 'then', '" + token[posicao][0] + "' não é válido.")
+                raise EnvironmentError("Erro Sintático, código inacabado.")
         else:
             raise EnvironmentError("Erro Sintático, é esperado 'identificador' ou 'if', '" + token[posicao][0] + "' não é válido.")
     
@@ -119,6 +125,8 @@ def analisador_sintatico():
             analisadorSemantico.inserir_soma(token[posicao][0])
             #Fim Analisador Semantico
             posicao += 1
+        else:
+            raise EnvironmentError("Erro Sintático, é esperado 'identificador', '" + token[posicao][0] + "' não é válido.")
     
     z()
 analisador_sintatico()
