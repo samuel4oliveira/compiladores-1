@@ -49,7 +49,6 @@ def verificar_tipo(chave):
         linha += 1
         listaVerificacao.pop(0)
         listaVerificacao.pop(0) 
-    print(listaVerificacao)
     if chave == 'soma':
         arquivo.write(str(linha)+': ' +  '[JF ' + listaVerificacao[0] + ' ' + str(linha+2) + ' -]\n')
         linha += 1  
