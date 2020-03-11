@@ -122,8 +122,10 @@ def analisador_sintatico():
         global posicao, token
         if token[posicao][1] == 'identificador':
             #Inicio Analisador Semantico
+            analisadorSemantico.buscar_id(token[posicao][0])
             analisadorSemantico.inserir_soma(token[posicao][0])
             #Fim Analisador Semantico
+            analisadorSemantico.inserir_id(token[posicao][0])
             posicao += 1
         else:
             raise EnvironmentError("Erro Sintático, é esperado 'identificador', '" + token[posicao][0] + "' não é válido.")

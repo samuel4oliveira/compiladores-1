@@ -10,6 +10,8 @@ linha = 1
 
 def inserir_id(id):
     global tabelaDeSimbolos
+    if id in tabelaDeSimbolos:
+        return
     tabelaDeSimbolos[id] = '' 
 
 def inserir_tipo(tipo):
@@ -23,7 +25,7 @@ def buscar_id(id):
     if id in tabelaDeSimbolos:
         return True
     else:
-        return False
+        raise ValueError('Erro Semântico, identificador não declarado.')
 
 def verificar_tipo(chave):
     global linha
